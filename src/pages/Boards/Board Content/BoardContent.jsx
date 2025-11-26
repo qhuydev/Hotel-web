@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 
 function BoardContent() {
   return (
-    <Box sx={{ marginTop: "40px", marginLeft: "20px" }}>
+    <Box sx={{ mx: "auto", mt: 5, px: 2 }}>
       {/* Tiêu đề */}
       <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', textAlign: 'center', marginBottom: '30px'}}>
       <Typography
@@ -13,7 +13,7 @@ function BoardContent() {
         sx={{
           fontWeight: "bold",
           color: "#333",
-          marginBottom: "4px",
+          marginBottom: "1px",
         }}
       >
         Danh sách phòng khách sạn
@@ -23,7 +23,6 @@ function BoardContent() {
         variant="subtitle1"
         sx={{
           color: "#666",
-          marginBottom: "20px",
         }}
       >
         Chọn phòng phù hợp với nhu cầu nghỉ dưỡng của bạn
@@ -32,10 +31,7 @@ function BoardContent() {
       {/* Danh sách phòng */}
       <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: 4,
-          flexWrap: "wrap",
+          px: 2
         }}
       >
         <ListCards />

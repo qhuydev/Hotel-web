@@ -1,19 +1,20 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import Rating from "@mui/material/Rating";
+import StarIcon from "@mui/icons-material/Star";
+import Box from "@mui/material/Box";
 
-export default function HeroTitle({ rating, setRating }) {
+export default function HeroTitle({}) {
   return (
     <>
       <Typography variant="h3" sx={{ fontWeight: "bold" }}>
-        Huy Hotel
+        H&N Hotel
       </Typography>
       <Typography variant="h6">Sang trọng • Tiện nghi • Đẳng cấp</Typography>
-      <Rating
-        name="rating-controlled"
-        value={rating}
-        onChange={(event, newValue) => setRating(newValue)}
-      />
+      <Box sx={{ display: "flex", gap: 1, color: "#FFD700" }}>
+      {[...Array(5)].map((_, idx) => (
+        <StarIcon key={idx} fontSize="small" />
+      ))}
+    </Box>
     </>
   );
 }

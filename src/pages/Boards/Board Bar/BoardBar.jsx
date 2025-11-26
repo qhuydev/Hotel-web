@@ -21,14 +21,27 @@ export default function BoardBar() {
       sx={{
         position: "relative",
         width: "100%",
-        height: "600px",
-        backgroundImage: "url(/images/anh1.jpg)",
+        height: (theme) => theme.hotel.boardBarHeight,
+        backgroundImage: "url(/images/anh4.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0,0,0,0.1)" }} />
 
+      {/* --- Overlay mờ --- */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0,0,0,0.1)",
+          pointerEvents: "none",   // Chỉ overlay mới bỏ sự kiện
+        }}
+      />
+
+      {/* --- Nội dung chính (có thể tương tác) --- */}
       <Box
         sx={{
           position: "absolute",
@@ -41,11 +54,13 @@ export default function BoardBar() {
           flexDirection: "column",
           alignItems: "center",
           gap: 2,
-          width: "90%",
+          width: "100%",
           maxWidth: 1200,
+          pointerEvents: "auto",   // Bảo đảm phần này tương tác được
         }}
       >
         <HeroTitle rating={rating} setRating={setRating} />
+
         <SearchBox
           checkInDate={checkInDate}
           setCheckInDate={setCheckInDate}
@@ -58,6 +73,7 @@ export default function BoardBar() {
           onSearch={handleSearch}
         />
       </Box>
+
     </Box>
   );
 }

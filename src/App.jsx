@@ -1,7 +1,16 @@
 import Boards from './pages/Boards'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RoomDetails from './pages/RoomDetails/RoomDetails';
 function App() {
   return (
-    <Boards />
+    <Router>
+      <Routes>
+        {/* Trang Chính */}
+        <Route path="/" element={<Boards />} />
+        <Route path="/room/:id" element={<RoomDetails />} />
+      </Routes>
+    </Router>
+    
   )
 }
 
