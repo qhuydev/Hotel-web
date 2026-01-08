@@ -4,3 +4,12 @@ html, body, #root {
   margin: 0;
   padding: 0;
 }
+
+/* Always keep a vertical scrollbar to avoid layout shifts when dialogs toggle body overflow */
+body {
+  scrollbar-gutter: stable;
+}
+
+
+/* Reduce image layout shifts */
+img { display: block; max-width: 100%; height: auto; }

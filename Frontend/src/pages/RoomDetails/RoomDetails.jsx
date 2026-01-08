@@ -100,6 +100,9 @@ export default function RoomDetail() {
               component="img"
               src={getImageUrl(room.images && room.images.length ? room.images[0] : null)}
               alt={room.title}
+              loading="lazy"
+              decoding="async"
+              draggable={false}
               onError={() => setFailedImages((s) => ({ ...s, ['main']: true }))}
               onClick={() => setOpenGallery(true)}
               sx={{
@@ -120,6 +123,9 @@ export default function RoomDetail() {
                     key={i}
                     component="img"
                     src={getImageUrl(img)}
+                    loading="lazy"
+                    decoding="async"
+                    draggable={false}
                     sx={{ width: 320, height: 220, objectFit: 'cover', borderRadius: 1 }}
                   />
                 ))}
@@ -154,9 +160,11 @@ export default function RoomDetail() {
             textAlign: { xs: 'center', lg: 'left' },
             position: { lg: 'sticky' },
             top: { lg: 100 },
+            zIndex: { lg: 1 },
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'flex-start'
+            alignItems: 'flex-start',
+            alignSelf: 'flex-start',
           }}
         >
           <Box sx={{ width: '100%', maxWidth: 380, borderRadius: 2, boxShadow: 2, p: 2 }}>
